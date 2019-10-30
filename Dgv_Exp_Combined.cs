@@ -52,7 +52,6 @@ namespace TanKorSeged_v01
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 Dgv_e_h.Height = e.Y + Dgv_e_h.Height - MouseDownLocation.Y;
                 Dgv_e_v.Width = e.X + Dgv_e_v.Width - MouseDownLocation.X;
-                Dgv_e_h.BackColor = Color.Green;
                 Dgv_e_h.Left = Dgv.Left + Dgv.Width;
                 Dgv_e_v.Top = Dgv.Top + Dgv.Height;
             }

@@ -181,5 +181,26 @@ namespace TanKorSeged_v01
         private void timer1_Tick(object sender, EventArgs e)
         {
         }
+
+        private void loadGTBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Add gtb.csv file";
+            openFileDialog1.ShowDialog();
+            toolStripTextBox1.Text = openFileDialog1.SafeFileName;
+        }
+
+        private void loadFelvettekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Add felvettek.csv file";
+            openFileDialog1.ShowDialog();
+            toolStripTextBox2.Text = openFileDialog1.SafeFileName;
+        }
+
+        private void loadKoliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Add koli.csv file";
+            openFileDialog1.ShowDialog();
+            toolStripTextBox3.Text = openFileDialog1.SafeFileName;
+        }
     }
 }

@@ -35,20 +35,24 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.adatokBetöltéseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quickSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.felvettekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kolisokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gTBsekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.loadGTBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.loadFelvettekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadKoliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1729, 12);
+            this.button1.Location = new System.Drawing.Point(1729, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 23);
             this.button1.TabIndex = 4;
@@ -98,7 +102,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1731, 41);
+            this.button6.Location = new System.Drawing.Point(1729, 78);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(114, 23);
             this.button6.TabIndex = 9;
@@ -109,62 +113,19 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adatokBetöltéseToolStripMenuItem,
-            this.exportToolStripMenuItem,
-            this.importToolStripMenuItem,
-            this.quickSaveToolStripMenuItem});
+            this.progressToolStripMenuItem,
+            this.loadGTBToolStripMenuItem,
+            this.toolStripTextBox1,
+            this.loadFelvettekToolStripMenuItem,
+            this.toolStripTextBox2,
+            this.loadKoliToolStripMenuItem,
+            this.toolStripTextBox3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1857, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1857, 27);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // adatokBetöltéseToolStripMenuItem
-            // 
-            this.adatokBetöltéseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.felvettekToolStripMenuItem,
-            this.kolisokToolStripMenuItem,
-            this.gTBsekToolStripMenuItem});
-            this.adatokBetöltéseToolStripMenuItem.Name = "adatokBetöltéseToolStripMenuItem";
-            this.adatokBetöltéseToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.adatokBetöltéseToolStripMenuItem.Text = "Load dataZ";
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.exportToolStripMenuItem.Text = "Export";
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.importToolStripMenuItem.Text = "Import";
-            // 
-            // quickSaveToolStripMenuItem
-            // 
-            this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.quickSaveToolStripMenuItem.Text = "Quick Save";
-            // 
-            // felvettekToolStripMenuItem
-            // 
-            this.felvettekToolStripMenuItem.Name = "felvettekToolStripMenuItem";
-            this.felvettekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.felvettekToolStripMenuItem.Text = "Felvettek";
-            // 
-            // kolisokToolStripMenuItem
-            // 
-            this.kolisokToolStripMenuItem.Name = "kolisokToolStripMenuItem";
-            this.kolisokToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kolisokToolStripMenuItem.Text = "Koli";
-            // 
-            // gTBsekToolStripMenuItem
-            // 
-            this.gTBsekToolStripMenuItem.Name = "gTBsekToolStripMenuItem";
-            this.gTBsekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gTBsekToolStripMenuItem.Text = "GTB";
             // 
             // panel1
             // 
@@ -174,6 +135,83 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1700, 629);
             this.panel1.TabIndex = 11;
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(200, 23);
+            // 
+            // loadGTBToolStripMenuItem
+            // 
+            this.loadGTBToolStripMenuItem.Name = "loadGTBToolStripMenuItem";
+            this.loadGTBToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
+            this.loadGTBToolStripMenuItem.Text = "Load GTB";
+            this.loadGTBToolStripMenuItem.Click += new System.EventHandler(this.loadGTBToolStripMenuItem_Click);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.ReadOnly = true;
+            this.toolStripTextBox2.Size = new System.Drawing.Size(200, 23);
+            // 
+            // toolStripTextBox3
+            // 
+            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox3.Name = "toolStripTextBox3";
+            this.toolStripTextBox3.ReadOnly = true;
+            this.toolStripTextBox3.Size = new System.Drawing.Size(200, 23);
+            // 
+            // loadFelvettekToolStripMenuItem
+            // 
+            this.loadFelvettekToolStripMenuItem.Name = "loadFelvettekToolStripMenuItem";
+            this.loadFelvettekToolStripMenuItem.Size = new System.Drawing.Size(95, 23);
+            this.loadFelvettekToolStripMenuItem.Text = "Load Felvettek";
+            this.loadFelvettekToolStripMenuItem.Click += new System.EventHandler(this.loadFelvettekToolStripMenuItem_Click);
+            // 
+            // loadKoliToolStripMenuItem
+            // 
+            this.loadKoliToolStripMenuItem.Name = "loadKoliToolStripMenuItem";
+            this.loadKoliToolStripMenuItem.Size = new System.Drawing.Size(68, 23);
+            this.loadKoliToolStripMenuItem.Text = "Load Koli";
+            this.loadKoliToolStripMenuItem.Click += new System.EventHandler(this.loadKoliToolStripMenuItem_Click);
+            // 
+            // progressToolStripMenuItem
+            // 
+            this.progressToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quickSaveToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem});
+            this.progressToolStripMenuItem.Name = "progressToolStripMenuItem";
+            this.progressToolStripMenuItem.Size = new System.Drawing.Size(73, 23);
+            this.progressToolStripMenuItem.Text = "Progress...";
+            // 
+            // quickSaveToolStripMenuItem
+            // 
+            this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quickSaveToolStripMenuItem.Text = "Quick Save";
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Csv Files (.csv)|*.csv|All Files (*.*)|*.*";
+            this.openFileDialog1.InitialDirectory = "@\"D:\\\"";
+            this.openFileDialog1.Title = "Open GTB";
             // 
             // Form1
             // 
@@ -207,14 +245,18 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem adatokBetöltéseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quickSaveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem felvettekToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kolisokToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gTBsekToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem loadGTBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem loadFelvettekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripMenuItem loadKoliToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
+        private System.Windows.Forms.ToolStripMenuItem progressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quickSaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
