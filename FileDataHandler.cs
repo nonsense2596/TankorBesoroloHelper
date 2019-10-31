@@ -8,5 +8,8 @@ namespace TanKorSeged_v01_teszt
 {
     class FileDataHandler
     {
+        public FileDataHandler()
+        {
+        }
     }
 }
