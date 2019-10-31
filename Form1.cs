@@ -10,25 +10,29 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TanKorSeged_v01_teszt;
 
 namespace TanKorSeged_v01
 {
     
     public partial class Form1 : Form
     {
-        string GTB_LOCATION, FELVETTEK_LOCATION, KOLI_LOCATION;
-
+        //string GTB_LOCATION, FELVETTEK_LOCATION, KOLI_LOCATION;
+        FileDataHandler fdh;
         List<DataGridViewSystemContainer> l = new List<DataGridViewSystemContainer>();
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
             // teszt
+            fdh = new FileDataHandler(button1);
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread();
+            //Thread t = new Thread();
             /*for(int i = 0, j=0; i < 9; i++)
             {
                 if (i % 2 == 0 && i != 0)
@@ -116,8 +120,12 @@ namespace TanKorSeged_v01
             openFileDialog1.ShowHelp = true; // TEMP LOL MERT GYORSABB
             openFileDialog1.ShowDialog();
             //GTB_LOCATION = openFileDialog1.FileName;
-            if(File.Exists(GTB_LOCATION = openFileDialog1.FileName))
+            if (File.Exists(openFileDialog1.FileName))
+            {
+                fdh.GTB_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("GTB_LOCATION successfully validated.");
+            }
+
             toolStripTextBox1.Text = openFileDialog1.SafeFileName;
         }
 
@@ -126,8 +134,11 @@ namespace TanKorSeged_v01
             openFileDialog1.Title = "Add felvettek.csv file";
             openFileDialog1.ShowHelp = true; // TEMP LOL MERT GYORSABB
             openFileDialog1.ShowDialog();
-            if (File.Exists(FELVETTEK_LOCATION = openFileDialog1.FileName))
+           if (File.Exists(openFileDialog1.FileName))
+            {
+                fdh.FELVETTEK_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("FELVETTEK_LOCATION successfully validated.");
+            }
             toolStripTextBox2.Text = openFileDialog1.SafeFileName;
         }
 
@@ -136,8 +147,11 @@ namespace TanKorSeged_v01
             openFileDialog1.Title = "Add koli.csv file";
             openFileDialog1.ShowHelp = true; // TEMP LOL MERT GYORSABB
             openFileDialog1.ShowDialog();
-            if (File.Exists(KOLI_LOCATION = openFileDialog1.FileName))
+            if (File.Exists(openFileDialog1.FileName))
+            {
+                fdh.KOLI_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("KOLI_LOCATION successfully validated.");
+            }
             toolStripTextBox3.Text = openFileDialog1.SafeFileName;
         }
     }
