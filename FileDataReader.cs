@@ -7,12 +7,14 @@ using System.Windows.Forms;
 
 namespace TanKorSeged_v01_teszt
 {
-    class FileDataHandler
+    class FileDataReader
     {
         private string _gtb_location;
         private string _felvettek_location;
         private string _koli_location;
-        public string GTB_LOCATION 
+        Button _button;
+
+        public string GTB_LOCATION
         {
             get
             {
@@ -59,11 +61,11 @@ namespace TanKorSeged_v01_teszt
                     .All(val2 => !string.IsNullOrEmpty(val2)));
         }
 
-        Button _button;
-        public FileDataHandler(Button b)
+
+        public FileDataReader(Button b)
         {
             _button = b;
-        }
+        } 
 
     }
 }

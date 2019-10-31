@@ -18,14 +18,14 @@ namespace TanKorSeged_v01
     public partial class Form1 : Form
     {
         //string GTB_LOCATION, FELVETTEK_LOCATION, KOLI_LOCATION;
-        FileDataHandler fdh;
+        FileDataReader fdh;
         List<DataGridViewSystemContainer> l = new List<DataGridViewSystemContainer>();
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
             // teszt
-            fdh = new FileDataHandler(button1);
+            fdh = new FileDataReader(button1);
         }
 
 
