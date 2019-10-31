@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace TanKorSeged_v01_teszt
 {
-    class Szin
+    enum Szin
     {
+        Szürke = 0,
+        Fehér = 1,
+        Fekete = 2,
+        Kék = 3,
+        Piros = 4,
+        Sárga = 5
     }
 }
