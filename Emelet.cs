@@ -22,3 +22,4 @@ namespace TanKorSeged_v01_teszt
         public string Gardanev { get; set; }
 
     }
+}

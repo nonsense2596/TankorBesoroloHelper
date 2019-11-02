@@ -71,7 +71,7 @@
     </Compile>
     <Compile Include="Emelet.cs" />
     <Compile Include="Felvettek.cs" />
-    <Compile Include="FileDataReader.cs" />
+    <Compile Include="FileData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

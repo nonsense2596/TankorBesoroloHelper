@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace TanKorSeged_v01_teszt
 {
     class Felvettek
-    class Felvettek
     {
         public string Nev { set; get; }
         public int Irsz { get; set; }

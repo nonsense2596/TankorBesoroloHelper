@@ -18,20 +18,18 @@ namespace TanKorSeged_v01
     public partial class Form1 : Form
     {
         //string GTB_LOCATION, FELVETTEK_LOCATION, KOLI_LOCATION;
-        FileDataReader fdh;
-        List<DataGridViewSystemContainer> l = new List<DataGridViewSystemContainer>();
+        //FileDataReader fdr;
+        List<DataGridViewSystemContainer> l = new List<DataGridViewSystemContainer>(); // EZ SEM KELL MAJD
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
-            // teszt
-            fdh = new FileDataReader(button1);
         }
 
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // TODO ÁTVINNI FILEDATA-BA
         {
+            //fdr.Fut();
             //Thread t = new Thread();
             /*for(int i = 0, j=0; i < 9; i++)
             {
@@ -103,15 +101,14 @@ namespace TanKorSeged_v01
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private async void button6_Click(object sender, EventArgs e)  // TESZT CUCC
         {
-            foreach (var item in l)
-            {
-                for(int i = 0; i < item.Dgvk.Rows.Count; i++)
-                {
-                    Console.WriteLine(item.Dgvk.Rows[i].Cells[0].Value);
-                }
-            }
+
+
+            Task t = new Task(FileData.Instance.OpenFiles);
+            t.Start();
+            await t;
+
         }
 
         private void loadGTBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,7 +119,7 @@ namespace TanKorSeged_v01
             //GTB_LOCATION = openFileDialog1.FileName;
             if (File.Exists(openFileDialog1.FileName))
             {
-                fdh.GTB_LOCATION = openFileDialog1.FileName;
+                FileData.Instance.GTB_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("GTB_LOCATION successfully validated.");
             }
 
@@ -136,7 +133,7 @@ namespace TanKorSeged_v01
             openFileDialog1.ShowDialog();
            if (File.Exists(openFileDialog1.FileName))
             {
-                fdh.FELVETTEK_LOCATION = openFileDialog1.FileName;
+                FileData.Instance.FELVETTEK_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("FELVETTEK_LOCATION successfully validated.");
             }
             toolStripTextBox2.Text = openFileDialog1.SafeFileName;
@@ -149,7 +146,7 @@ namespace TanKorSeged_v01
             openFileDialog1.ShowDialog();
             if (File.Exists(openFileDialog1.FileName))
             {
-                fdh.KOLI_LOCATION = openFileDialog1.FileName;
+                FileData.Instance.KOLI_LOCATION = openFileDialog1.FileName;
                 Console.WriteLine("KOLI_LOCATION successfully validated.");
             }
             toolStripTextBox3.Text = openFileDialog1.SafeFileName;
