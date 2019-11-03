@@ -151,5 +151,23 @@ namespace TanKorSeged_v01
             }
             toolStripTextBox3.Text = openFileDialog1.SafeFileName;
         }
+
+        private void noPerson_TextChanged(object sender, EventArgs e)
+        {
+            int num;
+            if(Int32.TryParse(noPerson.Text, out num))
+            {
+                FileData.Instance.NUM_OF_PERSON = num;
+            }
+        }
+
+        private void noTankor_TextChanged(object sender, EventArgs e)
+        {
+            int num;
+            if (Int32.TryParse(noTankor.Text, out num))
+            {
+                FileData.Instance.NUM_OF_TANKOR = num;
+            }
+        }
     }
 }

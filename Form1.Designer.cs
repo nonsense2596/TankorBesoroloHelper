@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.progressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,19 +43,23 @@
             this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.noPerson = new System.Windows.Forms.TextBox();
+            this.noTankor = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // startButton
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(12, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add stuff";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.startButton.Enabled = false;
+            this.startButton.Location = new System.Drawing.Point(12, 41);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(114, 23);
+            this.startButton.TabIndex = 4;
+            this.startButton.Text = "Add stuff";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 
@@ -167,15 +171,53 @@
             this.openFileDialog1.InitialDirectory = "@\"D:\\\"";
             this.openFileDialog1.Title = "Open GTB";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Fő:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 135);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Tankör:";
+            // 
+            // noPerson
+            // 
+            this.noPerson.Location = new System.Drawing.Point(41, 106);
+            this.noPerson.Name = "noPerson";
+            this.noPerson.Size = new System.Drawing.Size(85, 20);
+            this.noPerson.TabIndex = 14;
+            this.noPerson.TextChanged += new System.EventHandler(this.noPerson_TextChanged);
+            // 
+            // noTankor
+            // 
+            this.noTankor.Location = new System.Drawing.Point(64, 135);
+            this.noTankor.Name = "noTankor";
+            this.noTankor.Size = new System.Drawing.Size(62, 20);
+            this.noTankor.TabIndex = 15;
+            this.noTankor.TextChanged += new System.EventHandler(this.noTankor_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1857, 679);
+            this.Controls.Add(this.noTankor);
+            this.Controls.Add(this.noPerson);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -188,7 +230,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel1;
@@ -203,6 +245,10 @@
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox noPerson;
+        private System.Windows.Forms.TextBox noTankor;
     }
 }
 

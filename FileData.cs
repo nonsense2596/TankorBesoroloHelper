@@ -14,6 +14,8 @@ namespace TanKorSeged_v01_teszt
         private string _gtb_location;
         private string _felvettek_location;
         private string _koli_location;
+        private int _num_of_person = 0;
+        private int _num_of_tankor = 0;
 
         public string GTB_LOCATION
         {
@@ -24,11 +26,10 @@ namespace TanKorSeged_v01_teszt
             set
             {
                 _gtb_location = value;
-                //if (IsAllLoaded())
-                //    _button.Enabled = true;
+                IsAllLoaded();
             }
         }
-        public string FELVETTEK_LOCATION 
+        public string FELVETTEK_LOCATION
         {
             get
             {
@@ -37,11 +38,10 @@ namespace TanKorSeged_v01_teszt
             set
             {
                 _felvettek_location = value;
-                //if (IsAllLoaded())
-                //    _button.Enabled = true;
+                IsAllLoaded();
             }
         }
-        public string KOLI_LOCATION 
+        public string KOLI_LOCATION
         {
             get
             {
@@ -50,16 +50,47 @@ namespace TanKorSeged_v01_teszt
             set
             {
                 _koli_location = value;
-                //if (IsAllLoaded())
-                //    _button.Enabled = true;
+                IsAllLoaded();
             }
         }
-        private bool IsAllLoaded()
+        public int NUM_OF_PERSON
         {
-            return (this.GetType().GetProperties()
+            get
+            {
+                return _num_of_person;
+            }
+            set
+            {
+                _num_of_person = value;
+                IsAllLoaded();
+            }
+        }
+        public int NUM_OF_TANKOR
+        {
+            get
+            {
+                return _num_of_tankor;
+            }
+            set
+            {
+                _num_of_tankor = value;
+                IsAllLoaded();
+            }
+        }
+
+        private void IsAllLoaded()
+        {
+            //mainForm.Controls["startButton"].Enabled = true;
+            //Console.WriteLine(_gtb_location + " " + _felvettek_location + " " + _koli_location + " " + _num_of_person + " " + _num_of_tankor);
+
+            if (_gtb_location!=null && _felvettek_location!=null && _koli_location!=null && _num_of_person!=0 && _num_of_tankor != 0)
+            {
+                mainForm.Controls["startButton"].Enabled = true;
+            }
+           /* return (this.GetType().GetProperties()
                     .Where(val => val.PropertyType == typeof(string))
                     .Select(val => (string)val.GetValue(this))
-                    .All(val2 => !string.IsNullOrEmpty(val2)));
+                    .All(val2 => !string.IsNullOrEmpty(val2)));*/
         }
 
         private Form1 mainForm;
@@ -99,6 +130,9 @@ namespace TanKorSeged_v01_teszt
             }*/
             //Task<List<Felvettek>> t1 = Task<List<Felvettek>>.Factory.StartNew(() => File.ReadAllLines(FELVETTEK_LOCATION).Skip(1).Select(v => Felvettek.FromCsv(v)).ToList());
             //l_felv = t1.Result;
+
+            //Console.WriteLine(mainForm.Controls["noPerson"].Text);
+
             l_felv = File.ReadAllLines(FELVETTEK_LOCATION).Skip(1).Select(v => Felvettek.FromCsv(v)).ToList();
             l_koli = File.ReadAllLines(KOLI_LOCATION).Skip(1).Select(v => Koli.FromCsv(v)).ToList();
             l_gtb = File.ReadAllLines(GTB_LOCATION).Skip(1).Select(v => Gtb.FromCsv(v)).ToList();
@@ -120,12 +154,12 @@ namespace TanKorSeged_v01_teszt
                             Szin.Szürke
                         ))/*.OrderByDescending(x => x.Kartya).ThenBy(y=>y.GSzoba).*/.ToList();
 
-            List<Emelet> e = new List<Emelet>();
-            e.Add(new Emelet(600, 699, Szin.Sárga, "Dr.Wu"));
-            e.Add(new Emelet(700, 799, Szin.Kék, "Nyuszi"));
-            e.Add(new Emelet(800, 899, Szin.Fekete, "Fekete"));
-            e.Add(new Emelet(900, 999, Szin.Piros, "TTNY"));
-            e.Add(new Emelet(1000, 1099, Szin.Fehér, "SIR"));
+            List<Emelet> e = new List<Emelet>() {
+                                                    new Emelet(600, 699, Szin.Sárga, "Dr.Wu"),
+                                                    new Emelet(700, 799, Szin.Kék, "Nyuszi"),
+                                                    new Emelet(800, 899, Szin.Fekete, "Fekete"),
+                                                    new Emelet(900, 999, Szin.Piros, "TTNY"),
+                                                    new Emelet(1000, 1099, Szin.Fehér, "SIR")};
 
             foreach (var golya in l)
             {
