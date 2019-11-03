@@ -80,17 +80,11 @@ namespace TanKorSeged_v01_teszt
 
         private void IsAllLoaded()
         {
-            //mainForm.Controls["startButton"].Enabled = true;
-            //Console.WriteLine(_gtb_location + " " + _felvettek_location + " " + _koli_location + " " + _num_of_person + " " + _num_of_tankor);
 
             if (_gtb_location!=null && _felvettek_location!=null && _koli_location!=null && _num_of_person!=0 && _num_of_tankor != 0)
             {
                 mainForm.Controls["startButton"].Enabled = true;
             }
-           /* return (this.GetType().GetProperties()
-                    .Where(val => val.PropertyType == typeof(string))
-                    .Select(val => (string)val.GetValue(this))
-                    .All(val2 => !string.IsNullOrEmpty(val2)));*/
         }
 
         private Form1 mainForm;
@@ -124,14 +118,6 @@ namespace TanKorSeged_v01_teszt
 
         public void OpenFiles()
         {
-            /*for (int i = 0; i < 10000; i++)
-            {
-                Console.WriteLine("lol" + i);
-            }*/
-            //Task<List<Felvettek>> t1 = Task<List<Felvettek>>.Factory.StartNew(() => File.ReadAllLines(FELVETTEK_LOCATION).Skip(1).Select(v => Felvettek.FromCsv(v)).ToList());
-            //l_felv = t1.Result;
-
-            //Console.WriteLine(mainForm.Controls["noPerson"].Text);
 
             l_felv = File.ReadAllLines(FELVETTEK_LOCATION).Skip(1).Select(v => Felvettek.FromCsv(v)).ToList();
             l_koli = File.ReadAllLines(KOLI_LOCATION).Skip(1).Select(v => Koli.FromCsv(v)).ToList();
