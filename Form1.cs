@@ -31,7 +31,7 @@ namespace TanKorSeged_v01
         {
             //fdr.Fut();
             //Thread t = new Thread();
-            /*for(int i = 0, j=0; i < 9; i++)
+            for(int i = 0, j=0; i < 9; i++)
             {
                 if (i % 2 == 0 && i != 0)
                     j += 2;
@@ -97,7 +97,7 @@ namespace TanKorSeged_v01
                 dgv_m.Dgv_e_c = dgv_e_c;
 
                 l.Add(new DataGridViewSystemContainer(dgvk1, dgv_e_h, dgv_e_v, dgv_e_c, dgv_m));
-            }*/
+            }
 
         }
 

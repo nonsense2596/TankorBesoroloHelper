@@ -52,7 +52,6 @@
             // 
             // startButton
             // 
-            this.startButton.Enabled = false;
             this.startButton.Location = new System.Drawing.Point(12, 41);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(114, 23);
@@ -101,19 +100,19 @@
             // quickSaveToolStripMenuItem
             // 
             this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quickSaveToolStripMenuItem.Text = "Quick Save";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // loadGTBToolStripMenuItem
@@ -158,6 +157,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Location = new System.Drawing.Point(143, 41);
             this.panel1.Name = "panel1";
