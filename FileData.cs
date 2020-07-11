@@ -138,7 +138,7 @@ namespace TanKorSeged_v01_teszt
                             koli == null ? -1 : koli.Szoba,
                             gtb == null ? "-" : gtb.Garda,
                             Szin.Szürke
-                        ))/*.OrderByDescending(x => x.Kartya).ThenBy(y=>y.GSzoba).*/.ToList();
+                        ))/*.OrderByDescending(y => y.Kartya).ThenBy(z=>z.GSzoba)*/.ToList();
 
             List<Emelet> e = new List<Emelet>() {
                                                     new Emelet(600, 699, Szin.Sárga, "Dr.Wu"),
@@ -147,6 +147,7 @@ namespace TanKorSeged_v01_teszt
                                                     new Emelet(900, 999, Szin.Piros, "TTNY"),
                                                     new Emelet(1000, 1099, Szin.Fehér, "SIR")};
 
+            // itt vannak elrendezve csoportok alapjan
             foreach (var golya in l)
             {
                 foreach (var emelet in e)
@@ -159,13 +160,37 @@ namespace TanKorSeged_v01_teszt
             }
             l = l.OrderByDescending(x => x.Kartya).ThenBy(y => y.GSzoba).ThenBy(z => z.Szin).ToList();
 
+            // kellene group by szin alapjan
 
-            Console.WriteLine("Nev".PadRight(30) + "\tNeptun" + "\tIrsz".PadRight(5) + "\tNem".PadRight(5) +
-                              "\tKartya".PadRight(30) + "\tGtb Szoba".PadRight(30) + "\tKoli".PadRight(4) + "\tGarda".PadRight(6) + "\tSzin");
-            foreach (var item in l)
+            var teszt = l.GroupBy(x => x.Garda).Select(grp => grp.ToList()).ToList();//.OrderByDescending(x => x.Kartya).ThenBy(y => y.GSzoba).ThenBy(z => z.Szin).ToList();
+
+            List<Besorolando> l2 = new List<Besorolando>();
+            foreach (var item in teszt)
+            {
+                foreach (var item2 in item)
+                {
+                    l2.Add(item2);
+                    //Console.WriteLine(item2);
+                }
+            }
+            foreach (var item in l2)
             {
                 Console.WriteLine(item);
             }
+
+                
+
+            // ez csak egy teszt kiiratas
+            //Console.WriteLine("Nev".PadRight(30) + "\tNeptun" + "\tIrsz".PadRight(5) + "\tNem".PadRight(5) +
+            //                  "\tKartya".PadRight(30) + "\tGtb Szoba".PadRight(30) + "\tKoli".PadRight(4) + "\tGarda".PadRight(6) + "\tSzin");
+            //foreach (var item in l)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            // ez csak egy teszt kiiratas
+
+            // TODO itt kellene valahogyan a megadott szamu tankorbe szetrobbantani a tombot
+
         }
     }
 }

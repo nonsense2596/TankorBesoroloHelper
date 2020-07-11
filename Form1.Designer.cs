@@ -124,6 +124,7 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(200, 23);
@@ -137,6 +138,7 @@
             // 
             // toolStripTextBox2
             // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.ReadOnly = true;
             this.toolStripTextBox2.Size = new System.Drawing.Size(200, 23);
@@ -150,6 +152,7 @@
             // 
             // toolStripTextBox3
             // 
+            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox3.Name = "toolStripTextBox3";
             this.toolStripTextBox3.ReadOnly = true;
             this.toolStripTextBox3.Size = new System.Drawing.Size(200, 23);
