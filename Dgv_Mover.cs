@@ -33,19 +33,20 @@ namespace TanKorSeged_v01
         }
         private void PanelKai_MouseMove(object sender, MouseEventArgs e)
         {
-            timer1.Interval = 1;
-            if (timer1.Enabled)
-                timer1.Stop();
-            
-            Console.WriteLine(DateTime.Now.ToString("yyyyMMddHHmmssFFF"));
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left){
+            //timer1.Interval = 1;
+            //if (timer1.Enabled)
+            //    timer1.Stop();
+
+            //Console.WriteLine(DateTime.Now.ToString("yyyyMMddHHmmssFFF"));
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 Dgv.Left = e.X + Dgv.Left - MouseDownLocation.X;
                 Dgv_e_h.Left = e.X + Dgv_e_h.Left - MouseDownLocation.X;
                 Dgv_e_v.Left = e.X + Dgv_e_v.Left - MouseDownLocation.X;
                 Dgv_e_c.Left = e.X + Dgv_e_c.Left - MouseDownLocation.X;
 
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;               
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
                 Dgv.Top = e.Y + Dgv.Top - MouseDownLocation.Y;
                 Dgv_e_h.Top = e.Y + Dgv_e_h.Top - MouseDownLocation.Y;
                 Dgv_e_v.Top = e.Y + Dgv_e_v.Top - MouseDownLocation.Y;
@@ -53,17 +54,17 @@ namespace TanKorSeged_v01
 
 
             }
-            timer1.Start();
+            //timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine("lol");
+            //Console.WriteLine("lol");
         }
 
         private void Dgv_Mover_MouseUp(object sender, MouseEventArgs e)
         {
-            timer1.Stop();
+            //timer1.Stop();
         }
     }
 }
