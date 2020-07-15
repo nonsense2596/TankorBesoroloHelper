@@ -38,81 +38,95 @@ namespace TanKorSeged_v01
         static Rectangle dragBoxFromMouseDown;
         static int rowIndexFromMouseDown;
         static int rowIndexOfItemUnderMouseToDrop;
-
-
-        //private Point MouseDownLocation;
+        static Point MouseDownLocation;
+        ///////
+        static List<DataGridViewRow> rowstomove = new List<DataGridViewRow>();
+        static List<int> rowstodel = new List<int>();
+        ///////
         private void DataGridViewKai_MouseDown(object sender, MouseEventArgs e)
         {
-            // TELJES TÁBLA MOZGATÁS JOBB KLIKKEL
-            if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
+            ///////
+            rowstomove.Clear(); rowstodel.Clear();
+            Int32 selectedRowCount = this.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            for (int i = 0; i < selectedRowCount; i++)
             {
-                //MouseDownLocation = e.Location;
+                rowstomove.Add((DataGridViewRow)this.SelectedRows[i].Clone());
+                rowstodel.Add(this.SelectedRows[i].Index);
             }
-            // SOR ADAT MOZGATÁSA BAL KLIKKEL
-            else if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            ///////
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left) // SOR ADAT MOZGATÁSA BAL KLIKKEL
             {
                 dgwk = this;
                 // Get the index of the item the mouse is below.
                 rowIndexFromMouseDown = this.HitTest(e.X, e.Y).RowIndex;
                 if (rowIndexFromMouseDown != -1)
                 {
-                    // Remember the point where the mouse down occurred. 
-                    // The DragSize indicates the size that the mouse can move 
-                    // before a drag event should be started.                
+                    // Remember the point where the mouse down occurred. The DragSize indicates the size that the mouse can move before a drag event should be started.                
                     Size dragSize = SystemInformation.DragSize;
-
-                    // Create a rectangle using the DragSize, with the mouse position being
-                    // at the center of the rectangle.
-                    dragBoxFromMouseDown = new Rectangle(new Point(e.X - (dragSize.Width / 2),
-                                                                   e.Y - (dragSize.Height / 2)),
-                                        dragSize);
+                    // Create a rectangle using the DragSize, with the mouse position being at the center of the rectangle.
+                    dragBoxFromMouseDown = new Rectangle(new Point(e.X - (dragSize.Width / 2), e.Y - (dragSize.Height / 2)), dragSize);
                 }
-                else
-                    // Reset the rectangle if the mouse is not over an item in the ListBox.
+                else // Reset the rectangle if the mouse is not over an item in the ListBox.
                     dragBoxFromMouseDown = Rectangle.Empty;
             }
-
         }
+        private void DataGridViewKai_DragDrop(object sender, DragEventArgs e)
+        {
+            // The mouse locations are relative to the screen, so they must be converted to client coordinates.
+            //Point clientPoint = this.PointToClient(new Point(e.X, e.Y));
+            // Get the row index of the item the mouse is below. 
+            //rowIndexOfItemUnderMouseToDrop = this.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+            // If the drag operation was a move then remove and insert the row.
+            if (e.Effect == DragDropEffects.Move)
+            {
+
+                /*rowToMove = e.Data.GetData(typeof(DataGridViewRow)) as DataGridViewRow;
+                dgwk.Rows.RemoveAt(rowIndexFromMouseDown); 
+                if (rowIndexOfItemUnderMouseToDrop >= this.Rows.Count) { rowIndexOfItemUnderMouseToDrop--; }
+
+                this.Rows.Insert(rowIndexOfItemUnderMouseToDrop, rowToMove);*/
+
+                //////
+                for (int i = 0; i < rowstomove.Count; i++)
+                {
+                    rowToMove = dgwk.Rows[rowstodel.ElementAt(i)];
+                    dgwk.Rows.RemoveAt(rowstodel.ElementAt(i));
+                    Point clientPoint = this.PointToClient(new Point(e.X, e.Y));
+                    rowIndexOfItemUnderMouseToDrop = this.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+                    if (rowIndexOfItemUnderMouseToDrop >= this.Rows.Count) { rowIndexOfItemUnderMouseToDrop--; }
+                    this.Rows.Insert(rowIndexOfItemUnderMouseToDrop, rowToMove);
+                }
+                //////
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void DataGridViewKai_MouseMove(object sender, MouseEventArgs e)
         {
-            // TELJES TÁBLA MOZGATÁS JOBB KLIKKEL
-            if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
-            {
-               // this.Left = e.X + this.Left - MouseDownLocation.X;
-               // this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
+
             // SOR ADAT MOZGATÁSA BAL KLIKKEL
-            else if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
                 // If the mouse moves outside the rectangle, start the drag.
                 if (dragBoxFromMouseDown != Rectangle.Empty && !dragBoxFromMouseDown.Contains(e.X, e.Y))
                 {
                     // Proceed with the drag and drop, passing in the list item.                    
-                    DragDropEffects dropEffect = this.DoDragDrop( dgwk.Rows[rowIndexFromMouseDown], DragDropEffects.Move);
+                    DragDropEffects dropEffect = this.DoDragDrop(dgwk.Rows[rowIndexFromMouseDown], DragDropEffects.Move);
                 }
-            }
-        }
-
-        private void DataGridViewKai_DragDrop(object sender, DragEventArgs e)
-        {
-            // The mouse locations are relative to the screen, so they must be converted to client coordinates.
-            Point clientPoint = this.PointToClient(new Point(e.X, e.Y));
-            // Get the row index of the item the mouse is below. 
-            rowIndexOfItemUnderMouseToDrop = this.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
-
-            // If the drag operation was a move then remove and insert the row.
-            if (e.Effect == DragDropEffects.Move)
-            {
-                //DataGridViewRow rowToMove = e.Data.GetData( typeof(DataGridViewRow)) as DataGridViewRow;
-                rowToMove = e.Data.GetData(typeof(DataGridViewRow)) as DataGridViewRow;
-
-                dgwk.Rows.RemoveAt(rowIndexFromMouseDown); 
-                if (rowIndexOfItemUnderMouseToDrop >= this.Rows.Count) { rowIndexOfItemUnderMouseToDrop--; }
-
-
-                this.Rows.Insert(rowIndexOfItemUnderMouseToDrop, rowToMove);
-
             }
         }
 

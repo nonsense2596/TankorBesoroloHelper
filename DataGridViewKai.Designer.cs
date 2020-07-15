@@ -33,7 +33,6 @@
             // 
             // DataGridViewKai
             // 
-            this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.DataGridViewKai_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.DataGridViewKai_DragEnter);
             this.DragOver += new System.Windows.Forms.DragEventHandler(this.DataGridViewKai_DragOver);
