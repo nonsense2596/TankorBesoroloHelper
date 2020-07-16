@@ -79,13 +79,6 @@ namespace TanKorSeged_v01
             // If the drag operation was a move then remove and insert the row.
             if (e.Effect == DragDropEffects.Move)
             {
-
-                /*rowToMove = e.Data.GetData(typeof(DataGridViewRow)) as DataGridViewRow;
-                dgwk.Rows.RemoveAt(rowIndexFromMouseDown); 
-                if (rowIndexOfItemUnderMouseToDrop >= this.Rows.Count) { rowIndexOfItemUnderMouseToDrop--; }
-
-                this.Rows.Insert(rowIndexOfItemUnderMouseToDrop, rowToMove);*/
-
                 //////
                 for (int i = 0; i < rowstomove.Count; i++)
                 {
