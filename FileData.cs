@@ -178,18 +178,40 @@ namespace TanKorSeged_v01_teszt
                 Console.WriteLine(item);
             }
 
-                
-
-            // ez csak egy teszt kiiratas
-            //Console.WriteLine("Nev".PadRight(30) + "\tNeptun" + "\tIrsz".PadRight(5) + "\tNem".PadRight(5) +
-            //                  "\tKartya".PadRight(30) + "\tGtb Szoba".PadRight(30) + "\tKoli".PadRight(4) + "\tGarda".PadRight(6) + "\tSzin");
-            //foreach (var item in l)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            // ez csak egy teszt kiiratas
 
             // TODO itt kellene valahogyan a megadott szamu tankorbe szetrobbantani a tombot
+
+            // 1st section: megcsinalunk minden szinbol legalabb egy fix tankort
+            List<Besorolando> kek_fix = new List<Besorolando>();
+            List<Besorolando> feher_fix = new List<Besorolando>();
+            List<Besorolando> piros_fix = new List<Besorolando>();
+            List<Besorolando> sarga_fix = new List<Besorolando>();
+            List<Besorolando> fekete_fix = new List<Besorolando>();
+            List<Besorolando> maradek = new List<Besorolando>();
+            foreach (var item in l2)
+            {
+                switch (item.Garda)
+                {
+                    case "Nyuszi":  // kek
+                        kek_fix.Add(item);
+                        break;
+                    case "SIR":     // feher
+                        feher_fix.Add(item);
+                        break;
+                    case "TTNY":    // piros
+                        piros_fix.Add(item);
+                        break;
+                    case "Dr.Wu":   // sarga
+                        sarga_fix.Add(item);
+                        break;
+                    case "Fekete":  // fekete
+                        fekete_fix.Add(item);
+                        break;
+                    default:        // the rest
+                        maradek.Add(item);
+                        break;
+                }
+            }
 
         }
     }
