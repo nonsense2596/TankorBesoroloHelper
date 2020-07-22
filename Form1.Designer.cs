@@ -83,7 +83,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1857, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(2277, 27);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,19 +100,19 @@
             // quickSaveToolStripMenuItem
             // 
             this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.quickSaveToolStripMenuItem.Text = "Quick Save";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // loadGTBToolStripMenuItem
@@ -124,7 +124,6 @@
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(200, 23);
@@ -138,7 +137,6 @@
             // 
             // toolStripTextBox2
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.ReadOnly = true;
             this.toolStripTextBox2.Size = new System.Drawing.Size(200, 23);
@@ -152,7 +150,6 @@
             // 
             // toolStripTextBox3
             // 
-            this.toolStripTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox3.Name = "toolStripTextBox3";
             this.toolStripTextBox3.ReadOnly = true;
             this.toolStripTextBox3.Size = new System.Drawing.Size(200, 23);
@@ -164,7 +161,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Location = new System.Drawing.Point(143, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1702, 629);
+            this.panel1.Size = new System.Drawing.Size(2134, 670);
             this.panel1.TabIndex = 11;
             // 
             // openFileDialog1
@@ -213,7 +210,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1857, 679);
+            this.ClientSize = new System.Drawing.Size(2277, 712);
             this.Controls.Add(this.noTankor);
             this.Controls.Add(this.noPerson);
             this.Controls.Add(this.label2);
@@ -236,7 +233,6 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem loadGTBToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem loadFelvettekToolStripMenuItem;
@@ -252,6 +248,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox noPerson;
         private System.Windows.Forms.TextBox noTankor;
+        public System.Windows.Forms.Panel panel1;
     }
 }
 

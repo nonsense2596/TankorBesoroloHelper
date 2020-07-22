@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Besorolando.cs" />
+    <Compile Include="Besorolando_temp.cs" />
     <Compile Include="DataGridViewSystemContainer.cs" />
     <Compile Include="Dgv_Exp_Combined.cs">
       <SubType>Component</SubType>

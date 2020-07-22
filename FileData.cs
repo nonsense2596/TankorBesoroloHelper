@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -102,22 +103,22 @@ namespace TanKorSeged_v01_teszt
 
         public void ExDee()
         {
-            /*Button asd = new Button();
-            asd.Location = new System.Drawing.Point(10, 10);
-            asd.Size = new System.Drawing.Size(50, 50);
-            asd.Name = "faszom";
-            mainForm.Controls.Add(asd);
-            string faszom = "faszom";
-            mainForm.Controls[faszom].Top = 200;*/
+
         }
 
         private List<Felvettek> l_felv;
         private List<Koli> l_koli;
         private List<Gtb> l_gtb;
         private List<Besorolando> l;
+        public List<Besorolando_temp> toadd_temp = new List<Besorolando_temp>();
 
         public void OpenFiles()
         {
+            // temp TODO
+            GTB_LOCATION = "D:\\Documents\\hk\\tesztadatok\\gtb.csv";
+            FELVETTEK_LOCATION = "D:\\Documents\\hk\\tesztadatok\\info.csv";
+            KOLI_LOCATION = "D:\\Documents\\hk\\tesztadatok\\koli.csv";
+
 
             l_felv = File.ReadAllLines(FELVETTEK_LOCATION).Skip(1).Select(v => Felvettek.FromCsv(v)).ToList();
             l_koli = File.ReadAllLines(KOLI_LOCATION).Skip(1).Select(v => Koli.FromCsv(v)).ToList();
@@ -182,36 +183,46 @@ namespace TanKorSeged_v01_teszt
             // TODO itt kellene valahogyan a megadott szamu tankorbe szetrobbantani a tombot
 
             // 1st section: megcsinalunk minden szinbol legalabb egy fix tankort
-            List<Besorolando> kek_fix = new List<Besorolando>();
-            List<Besorolando> feher_fix = new List<Besorolando>();
-            List<Besorolando> piros_fix = new List<Besorolando>();
-            List<Besorolando> sarga_fix = new List<Besorolando>();
-            List<Besorolando> fekete_fix = new List<Besorolando>();
-            List<Besorolando> maradek = new List<Besorolando>();
+            //List<Besorolando> kek_fix = new List<Besorolando>();
+            //List<Besorolando> feher_fix = new List<Besorolando>();
+            //List<Besorolando> piros_fix = new List<Besorolando>();
+            //List<Besorolando> sarga_fix = new List<Besorolando>();
+            //List<Besorolando> fekete_fix = new List<Besorolando>();
+            //List<Besorolando> maradek = new List<Besorolando>();
+
+            toadd_temp = new List<Besorolando_temp>();
+            List<Besorolando> toadd_temp_rest = new List<Besorolando>();
             foreach (var item in l2)
             {
                 switch (item.Garda)
                 {
                     case "Nyuszi":  // kek
-                        kek_fix.Add(item);
+                        toadd_temp.Add(new Besorolando_temp(item,0));
                         break;
                     case "SIR":     // feher
-                        feher_fix.Add(item);
+                        toadd_temp.Add(new Besorolando_temp(item, 1));
                         break;
                     case "TTNY":    // piros
-                        piros_fix.Add(item);
+                        toadd_temp.Add(new Besorolando_temp(item, 2));
                         break;
                     case "Dr.Wu":   // sarga
-                        sarga_fix.Add(item);
+                        toadd_temp.Add(new Besorolando_temp(item, 3));
                         break;
                     case "Fekete":  // fekete
-                        fekete_fix.Add(item);
+                        toadd_temp.Add(new Besorolando_temp(item, 4));
                         break;
                     default:        // the rest
-                        maradek.Add(item);
+                        toadd_temp_rest.Add(item);
                         break;
                 }
             }
+            // process the rest, and add them to toadd_temp
+
+
+
+
+
+
 
         }
     }

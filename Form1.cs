@@ -20,6 +20,8 @@ namespace TanKorSeged_v01
         //string GTB_LOCATION, FELVETTEK_LOCATION, KOLI_LOCATION;
         //FileDataReader fdr;
         List<DataGridViewSystemContainer> l = new List<DataGridViewSystemContainer>(); // EZ SEM KELL MAJD
+
+
         public Form1()
         {
             InitializeComponent();
@@ -36,15 +38,24 @@ namespace TanKorSeged_v01
                 if (i % 2 == 0 && i != 0)
                     j += 2;
                 DataGridViewKai dgvk1 = new DataGridViewKai();
-                dgvk1.Size = new Size(600, 150);
+                dgvk1.Size = new Size(950, 150);
                 //dgvk1.Location = new Point(50, 100);
-                dgvk1.Location = new Point(((i%2)*700)+100,(j*150)+50);
-                dgvk1.Columns.Add("asd", "asd");
-                dgvk1.Columns.Add("lol", "lol");
-                dgvk1.Columns.Add("kek", "kek");
-                dgvk1.Columns.Add("bur", "bur");
-                dgvk1.Columns.Add("baz", "baz");
-                dgvk1.Rows.Add("asd", "lol", "kek", "bur", "baz");
+                dgvk1.Location = new Point(((i%2)*1000)+50,(j*150)+50);
+                //dgvk1.Columns.Add("asd", "asd");
+                //dgvk1.Columns.Add("lol", "lol");
+                //dgvk1.Columns.Add("kek", "kek");
+                //dgvk1.Columns.Add("bur", "bur");
+                //dgvk1.Columns.Add("baz", "baz");
+                dgvk1.Columns.Add("nev", "név");
+                dgvk1.Columns.Add("neptun", "Neptun");
+                dgvk1.Columns.Add("irsz", "Irsz.");
+                dgvk1.Columns.Add("nem", "Nem");
+                dgvk1.Columns.Add("kartya", "Kártya");
+                dgvk1.Columns.Add("szoba", "Szoba");
+                dgvk1.Columns.Add("emelet", "Emelet");
+                dgvk1.Columns.Add("garda", "Gárda");
+                dgvk1.Columns.Add("szin", "Szín");  // 9 rows total
+                dgvk1.Rows.Add("asd", "lol", "kek", "bur", "baz", "baz2", "baz3","baz4", "baz5");
                 dgvk1.AllowUserToAddRows = true;
                 panel1.Controls.Add(dgvk1);
 
@@ -96,7 +107,7 @@ namespace TanKorSeged_v01
                 dgv_m.Dgv_e_v = dgv_e_v;
                 dgv_m.Dgv_e_c = dgv_e_c;
 
-                l.Add(new DataGridViewSystemContainer(dgvk1, dgv_e_h, dgv_e_v, dgv_e_c, dgv_m));
+                //l.Add(new DataGridViewSystemContainer(dgvk1, dgv_e_h, dgv_e_v, dgv_e_c, dgv_m));
             }
 
         }
@@ -120,6 +131,7 @@ namespace TanKorSeged_v01
             if (File.Exists(openFileDialog1.FileName))
             {
                 FileData.Instance.GTB_LOCATION = openFileDialog1.FileName;
+                
                 Console.WriteLine("GTB_LOCATION successfully validated.");
             }
 
